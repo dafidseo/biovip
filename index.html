@@ -162,15 +162,6 @@ footer a:hover { text-decoration:underline; }
     line-height: 1.4;
 }
 
-.checkbox-container a {
-    color: #FFD700;
-    text-decoration: none;
-}
-
-.checkbox-container a:hover {
-    text-decoration: underline;
-}
-
 /* Form Styles untuk Chat Admin */
 .form-group {
     margin-bottom: 15px;
@@ -273,6 +264,55 @@ footer a:hover { text-decoration:underline; }
     to { transform: rotate(360deg); }
 }
 
+/* Kalkulator Styles */
+.calculator-container {
+    background: #222;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #FFD700;
+    margin-top: 15px;
+}
+
+.calculator-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    font-size: 1rem;
+}
+
+.calculator-button {
+    width: 100%;
+    padding: 12px;
+    background: #FFD700;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: 0.3s;
+}
+
+.calculator-button:hover {
+    background: #ffcc00;
+}
+
+.calculator-result {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFD700;
+}
+
 @media (max-width:600px){
     .profile h1{font-size:1.5rem;}
     .link-item{font-size:1rem;padding:12px;}
@@ -298,8 +338,13 @@ footer a:hover { text-decoration:underline; }
   </div>
 
   <div class="links">
-    <a href="#" class="link-item join-agency-btn" data-target="https://www.tiktok.com/t/ZMhhYfPCA/">Daftar Agency</a>
-    <a href="#" class="link-item chat-admin-btn" data-wa="6282164889300">Chat Admin</a>
+    <!-- Menu dengan modal -->
+    <a href="#" class="link-item" id="joinAgencyBtn">Gabung Agency</a>
+    <a href="#" class="link-item" id="chatAdminBtn">Chat Admin</a>
+    
+    <!-- Menu asli VIP Agency -->
+    <a href="https://www.tiktok.com/t/ZMhhYfPCA/" class="link-item" target="_blank">Cara Terima Gabung Agency</a>
+    <a href="#" class="link-item" id="kalkulatorBtn">Kalkulator Penghasilan TikTok</a>
     <a href="https://wa.me/6282164889300" class="link-item" target="_blank">Sub Agency</a>
     <a href="https://vipagency.netlify.app/" class="link-item" target="_blank">Website</a>
     <a href="https://pemulavip.netlify.app/" class="link-item" target="_blank">Panduan Tiktok</a>
@@ -313,7 +358,7 @@ footer a:hover { text-decoration:underline; }
   <div class="modal-overlay" id="noticeModal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>📋 Persyaratan Gabung Agency</h2>
+        <h2>📋 Persyaratan Gabung VIP Agency</h2>
         <button class="close-btn" id="closeModal">&times;</button>
       </div>
       
@@ -321,6 +366,11 @@ footer a:hover { text-decoration:underline; }
         <div class="requirement-item">
           <div class="requirement-icon">✓</div>
           <div class="requirement-text">Berusia minimal 18 tahun dan memiliki KTP yang valid</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Minimal Followers 300+</div>
         </div>
         
         <div class="requirement-item">
@@ -447,6 +497,63 @@ footer a:hover { text-decoration:underline; }
     </div>
   </div>
 
+  <!-- Modal Kalkulator -->
+  <div class="modal-overlay" id="kalkulatorModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>💰 Kalkulator Penghasilan TikTok</h2>
+        <button class="close-btn" id="closeKalkulatorModal">&times;</button>
+      </div>
+      
+      <div class="calculator-container">
+        <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">Hitung Potensi Penghasilan Anda</h3>
+        
+        <div class="form-group">
+          <label for="views">Jumlah Views per Video</label>
+          <input type="number" id="views" class="calculator-input" placeholder="Contoh: 10000" min="0">
+        </div>
+        
+        <div class="form-group">
+          <label for="videos">Jumlah Video per Bulan</label>
+          <input type="number" id="videos" class="calculator-input" placeholder="Contoh: 30" min="0">
+        </div>
+        
+        <div class="form-group">
+          <label for="engagement">Engagement Rate (%)</label>
+          <input type="number" id="engagement" class="calculator-input" placeholder="Contoh: 5" min="0" max="100" step="0.1">
+          <small>Persentase like, komentar, share dari total views</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="cpv">CPV (Cost Per View) Agency</label>
+          <select id="cpv" class="calculator-input">
+            <option value="0.0001">Rp 0.0001/views (Basic)</option>
+            <option value="0.0002">Rp 0.0002/views (Standard)</option>
+            <option value="0.0003">Rp 0.0003/views (Premium)</option>
+            <option value="0.0005">Rp 0.0005/views (VIP)</option>
+          </select>
+        </div>
+        
+        <button class="calculator-button" id="hitungBtn">Hitung Penghasilan</button>
+        
+        <div class="calculator-result" id="hasilKalkulator">
+          Hasil akan muncul di sini
+        </div>
+        
+        <div style="margin-top: 20px; padding: 15px; background: rgba(255, 215, 0, 0.05); border-radius: 8px;">
+          <h4 style="color: #FFD700; margin-bottom: 10px;">💡 Tips Meningkatkan Penghasilan:</h4>
+          <ul style="color: #ccc; padding-left: 20px;">
+            <li>Konsisten posting minimal 1 video per hari</li>
+            <li>Optimasi waktu posting (prime time)</li>
+            <li>Gunakan hashtag yang relevan</li>
+            <li>Interaksi dengan followers secara aktif</li>
+            <li>Ikuti trend yang sedang viral</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p>© 2025 VIP_Agency | Dibuat oleh <a href="https://vipagency.netlify.app/" target="_blank">❤️ Dafid SEO</a></p>
   </footer>
@@ -459,21 +566,25 @@ footer a:hover { text-decoration:underline; }
   const cancelBtn = document.getElementById('cancelBtn');
   const confirmBtn = document.getElementById('confirmBtn');
   const agreeCheckbox = document.getElementById('agreeCheckbox');
-  const joinAgencyBtn = document.querySelector('.join-agency-btn');
-  let agencyTargetUrl = '';
+  const joinAgencyBtn = document.getElementById('joinAgencyBtn');
 
   // Elemen modal Chat Admin
   const chatModal = document.getElementById('chatModal');
   const closeChatModal = document.getElementById('closeChatModal');
-  const chatAdminBtn = document.querySelector('.chat-admin-btn');
+  const chatAdminBtn = document.getElementById('chatAdminBtn');
   const chatAdminForm = document.getElementById('chatAdminForm');
   const submitFormBtn = document.getElementById('submitFormBtn');
-  let waNumber = '';
+
+  // Elemen modal Kalkulator
+  const kalkulatorModal = document.getElementById('kalkulatorModal');
+  const closeKalkulatorModal = document.getElementById('closeKalkulatorModal');
+  const kalkulatorBtn = document.getElementById('kalkulatorBtn');
+  const hitungBtn = document.getElementById('hitungBtn');
+  const hasilKalkulator = document.getElementById('hasilKalkulator');
 
   // Buka modal Gabung Agency
   joinAgencyBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    agencyTargetUrl = this.getAttribute('data-target');
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   });
@@ -481,8 +592,14 @@ footer a:hover { text-decoration:underline; }
   // Buka modal Chat Admin
   chatAdminBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    waNumber = this.getAttribute('data-wa');
     chatModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+
+  // Buka modal Kalkulator
+  kalkulatorBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    kalkulatorModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   });
 
@@ -492,6 +609,9 @@ footer a:hover { text-decoration:underline; }
 
   // Tutup modal Chat Admin
   closeChatModal.addEventListener('click', closeChatModalFunc);
+
+  // Tutup modal Kalkulator
+  closeKalkulatorModal.addEventListener('click', closeKalkulatorModalFunc);
 
   // Fungsi tutup modal Gabung Agency
   function closeAgencyModal() {
@@ -508,6 +628,12 @@ footer a:hover { text-decoration:underline; }
     chatAdminForm.reset();
   }
 
+  // Fungsi tutup modal Kalkulator
+  function closeKalkulatorModalFunc() {
+    kalkulatorModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
   // Tutup modal dengan klik di luar konten
   modal.addEventListener('click', function(e) {
     if (e.target === modal) closeAgencyModal();
@@ -515,6 +641,10 @@ footer a:hover { text-decoration:underline; }
 
   chatModal.addEventListener('click', function(e) {
     if (e.target === chatModal) closeChatModalFunc();
+  });
+
+  kalkulatorModal.addEventListener('click', function(e) {
+    if (e.target === kalkulatorModal) closeKalkulatorModalFunc();
   });
 
   // Aktifkan tombol konfirmasi jika checkbox dicentang
@@ -527,7 +657,8 @@ footer a:hover { text-decoration:underline; }
     if (agreeCheckbox.checked) {
       closeAgencyModal();
       setTimeout(() => {
-        window.open(agencyTargetUrl, '_blank');
+        // Redirect ke link TikTok asli
+        window.open('https://www.tiktok.com/t/ZMhhYfPCA/', '_blank');
       }, 500);
     }
   });
@@ -552,8 +683,8 @@ footer a:hover { text-decoration:underline; }
     // Encode message untuk URL
     const encodedMessage = encodeURIComponent(message);
     
-    // Buat URL WhatsApp
-    const whatsappUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+    // Buat URL WhatsApp (nomor admin asli)
+    const whatsappUrl = `https://wa.me/6282164889300?text=${encodedMessage}`;
     
     // Simulasi delay untuk UX
     setTimeout(() => {
@@ -635,11 +766,60 @@ Saya siap mengikuti proses seleksi berikutnya.
 Terima kasih.`;
   }
 
+  // Kalkulator Penghasilan
+  hitungBtn.addEventListener('click', function() {
+    const views = parseFloat(document.getElementById('views').value) || 0;
+    const videos = parseFloat(document.getElementById('videos').value) || 0;
+    const engagement = parseFloat(document.getElementById('engagement').value) || 0;
+    const cpv = parseFloat(document.getElementById('cpv').value);
+    
+    if (views === 0 || videos === 0) {
+      hasilKalkulator.innerHTML = '<span style="color: #ff4444;">Masukkan jumlah views dan video terlebih dahulu!</span>';
+      return;
+    }
+    
+    // Hitung total views per bulan
+    const totalViews = views * videos;
+    
+    // Hitung penghasilan dari views
+    let penghasilanViews = totalViews * cpv;
+    
+    // Bonus engagement (jika engagement rate tinggi)
+    const engagementBonus = engagement > 3 ? (engagement / 100) * penghasilanViews * 0.5 : 0;
+    
+    // Total penghasilan
+    let totalPenghasilan = penghasilanViews + engagementBonus;
+    
+    // Format ke Rupiah
+    const formatRupiah = (number) => {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }).format(number);
+    };
+    
+    // Tampilkan hasil
+    hasilKalkulator.innerHTML = `
+      <div style="text-align: left;">
+        <p>📊 <strong>Hasil Perhitungan:</strong></p>
+        <p>Total Views/Bulan: <strong>${totalViews.toLocaleString()} views</strong></p>
+        <p>Penghasilan dari Views: <strong>${formatRupiah(penghasilanViews)}</strong></p>
+        ${engagementBonus > 0 ? `<p>Bonus Engagement: <strong>+${formatRupiah(engagementBonus)}</strong></p>` : ''}
+        <hr style="border-color: #FFD700; margin: 10px 0;">
+        <p style="font-size: 1.4rem;">💰 Total Per Bulan: <strong style="color: #FFD700;">${formatRupiah(totalPenghasilan)}</strong></p>
+        <p style="font-size: 0.9rem; color: #ccc; margin-top: 10px;">* Perkiraan penghasilan berdasarkan data yang dimasukkan</p>
+      </div>
+    `;
+  });
+
   // Tutup modal dengan ESC key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       if (modal.style.display === 'flex') closeAgencyModal();
       if (chatModal.style.display === 'flex') closeChatModalFunc();
+      if (kalkulatorModal.style.display === 'flex') closeKalkulatorModalFunc();
     }
   });
 </script>
