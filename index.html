@@ -313,90 +313,6 @@ footer a:hover { text-decoration:underline; }
     color: #FFD700;
 }
 
-/* Tabel Bonus Styles */
-.bonus-table-container {
-    background: #222;
-    padding: 20px;
-    border-radius: 15px;
-    border: 2px solid #FFD700;
-    margin-top: 15px;
-    overflow-x: auto;
-}
-
-.bonus-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-}
-
-.bonus-table th {
-    background: #FFD700;
-    color: #111;
-    padding: 12px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.bonus-table td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #444;
-}
-
-.bonus-table tr:nth-child(even) {
-    background: rgba(255, 215, 0, 0.05);
-}
-
-.bonus-table tr:hover {
-    background: rgba(255, 215, 0, 0.1);
-}
-
-.bonus-badge {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-.bonus-badge.hot {
-    background: #ff4444;
-    color: white;
-}
-
-.bonus-badge.new {
-    background: #44ff44;
-    color: #111;
-}
-
-.bonus-badge.vip {
-    background: #FFD700;
-    color: #111;
-}
-
-.bonus-info {
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(255, 215, 0, 0.05);
-    border-radius: 8px;
-    color: #ccc;
-    font-size: 0.9rem;
-}
-
-.bonus-info h4 {
-    color: #FFD700;
-    margin-bottom: 10px;
-}
-
-.bonus-info ul {
-    padding-left: 20px;
-}
-
-.bonus-info li {
-    margin-bottom: 5px;
-}
-
 @media (max-width:600px){
     .profile h1{font-size:1.5rem;}
     .link-item{font-size:1rem;padding:12px;}
@@ -409,13 +325,6 @@ footer a:hover { text-decoration:underline; }
     }
     .modal-actions {
         flex-direction: column;
-    }
-    .bonus-table {
-        font-size: 0.9rem;
-    }
-    .bonus-table th,
-    .bonus-table td {
-        padding: 8px 5px;
     }
 }
 </style>
@@ -436,7 +345,6 @@ footer a:hover { text-decoration:underline; }
     <!-- Menu asli VIP Agency -->
     <a href="https://www.tiktok.com/t/ZMhhYfPCA/" class="link-item" target="_blank">Cara Terima Gabung Agency</a>
     <a href="#" class="link-item" id="kalkulatorBtn">Kalkulator Penghasilan TikTok</a>
-    <a href="#" class="link-item" id="tabelBonusBtn">Tabel Bonus Agency</a>
     <a href="https://wa.me/6282164889300" class="link-item" target="_blank">Sub Agency</a>
     <a href="https://vipagency.netlify.app/" class="link-item" target="_blank">Website</a>
     <a href="https://pemulavip.netlify.app/" class="link-item" target="_blank">Panduan Tiktok</a>
@@ -450,41 +358,87 @@ footer a:hover { text-decoration:underline; }
   <div class="modal-overlay" id="noticeModal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>📋 Persyaratan Gabung Agency</h2>
+        <h2>📋 Persyaratan Gabung VIP Agency</h2>
         <button class="close-btn" id="closeModal">&times;</button>
       </div>
       
       <div class="requirements-list">
         <div class="requirement-item">
           <div class="requirement-icon">✓</div>
-          <div class="requirement-text">Berusia minimal 18 tahun dan memiliki KTP yang valid</div>
+          <div class="requirement-text">Berusia minimal 18 tahun dan memiliki KTP yang valid.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Minimal Followers 300+.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Akun Sudah Bisa Live Streaming.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Username akun tiktok harus sama dengan nama akun tiktok, tidak boleh ada emotikon ataupun gambar apapun dalam nama akun tiktoknya.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Wajib Posting 1 Video Tiktok Sebelum Live Streaming.</div>
         </div>
         
         <div class="requirement-item">
           <div class="requirement-icon">✓</div>
-          <div class="requirement-text">Bukan untuk keperluan affiliate atau seller</div>
+          <div class="requirement-text">Bukan untuk keperluan affiliate atau seller.</div>
         </div>
         
         <div class="requirement-item">
           <div class="requirement-icon">✓</div>
-          <div class="requirement-text">Tidak tinggal di luar negeri</div>
+          <div class="requirement-text">Tidak tinggal di luar negeri.</div>
         </div>
         
         <div class="requirement-item">
           <div class="requirement-icon">✓</div>
-          <div class="requirement-text">Tidak memiliki banyak akun TikTok</div>
+          <div class="requirement-text">Tidak memiliki banyak akun TikTok.</div>
         </div>
         
         <div class="requirement-item">
           <div class="requirement-icon">✓</div>
-          <div class="requirement-text">Akun TikTok tidak sedang dalam status pelanggaran</div>
+          <div class="requirement-text">Akun TikTok tidak sedang dalam status pelanggaran.</div>
         </div>
         
         <div class="requirement-item">
           <div class="requirement-icon">✓</div>
-          <div class="requirement-text">Tidak tergabung dengan agency lain saat ini</div>
+          <div class="requirement-text">Tidak tergabung dengan agency lain saat ini.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Tidak ada potongan sama sekali untuk live streaming.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Tidak ada gaji harian atau mingguan dan bulanan, yang ada bonus bulanan jika bisa capai target Jam, hari dan berlian.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Wajib Baca semua ketentuan yang berlaku, agar tidak tidak ada dracin atau drakor dikemudian hari, jika sudah merasa yakin silahkan lanjutkan pendaftara, jika tidak yakin bisa batalkan pendaftaran agency.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Pendaftaran 100% Gratis dan tidak ada biaya apapun sama sekali.</div>
+        </div>
+
+        <div class="requirement-item">
+          <div class="requirement-icon">✓</div>
+          <div class="requirement-text">Tidak Terima Drama dalam bentuk apapun semua keputusan ada di kami apakah anda layak atau tidak bergabung dengan agency kami.</div>
         </div>
       </div>
+      
       
       <div class="checkbox-container">
         <input type="checkbox" id="agreeCheckbox">
@@ -641,110 +595,6 @@ footer a:hover { text-decoration:underline; }
     </div>
   </div>
 
-  <!-- Modal Tabel Bonus -->
-  <div class="modal-overlay" id="tabelBonusModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>🏆 Tabel Bonus VIP Agency</h2>
-        <button class="close-btn" id="closeTabelBonusModal">&times;</button>
-      </div>
-      
-      <div class="bonus-table-container">
-        <h3 style="color: #FFD700; text-align: center; margin-bottom: 20px;">Sistem Bonus dan Reward Member</h3>
-        
-        <table class="bonus-table">
-          <thead>
-            <tr>
-              <th>Level</th>
-              <th>Min. Followers</th>
-              <th>Min. Views/Video</th>
-              <th>CPV Rate</th>
-              <th>Bonus Bergabung</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Bronze</strong></td>
-              <td>1.000</td>
-              <td>1.000</td>
-              <td>Rp 0.0001</td>
-              <td>Rp 10.000</td>
-              <td><span class="bonus-badge">Basic</span></td>
-            </tr>
-            <tr>
-              <td><strong>Silver</strong></td>
-              <td>5.000</td>
-              <td>5.000</td>
-              <td>Rp 0.0002</td>
-              <td>Rp 25.000</td>
-              <td><span class="bonus-badge">Standard</span></td>
-            </tr>
-            <tr>
-              <td><strong>Gold</strong></td>
-              <td>10.000</td>
-              <td>10.000</td>
-              <td>Rp 0.0003</td>
-              <td>Rp 50.000</td>
-              <td><span class="bonus-badge new">NEW</span></td>
-            </tr>
-            <tr>
-              <td><strong>Platinum</strong></td>
-              <td>25.000</td>
-              <td>25.000</td>
-              <td>Rp 0.0004</td>
-              <td>Rp 100.000</td>
-              <td><span class="bonus-badge hot">HOT</span></td>
-            </tr>
-            <tr>
-              <td><strong>Diamond</strong></td>
-              <td>50.000</td>
-              <td>50.000</td>
-              <td>Rp 0.0005</td>
-              <td>Rp 250.000</td>
-              <td><span class="bonus-badge vip">VIP</span></td>
-            </tr>
-            <tr>
-              <td><strong>Crown</strong></td>
-              <td>100.000</td>
-              <td>100.000</td>
-              <td>Rp 0.0010</td>
-              <td>Rp 500.000</td>
-              <td><span class="bonus-badge vip">ELITE</span></td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <div class="bonus-info">
-          <h4>📊 Sistem Bonus Tambahan:</h4>
-          <ul>
-            <li><strong>Bonus Konsistensi:</strong> Rp 50.000 untuk posting 30 hari berturut-turut</li>
-            <li><strong>Bonus Viral:</strong> 10% extra untuk video dengan views > 100K</li>
-            <li><strong>Bonus Referral:</strong> Rp 20.000 per member yang direferensikan</li>
-            <li><strong>Bonus Loyalty:</strong> Rp 100.000 setiap 3 bulan aktif</li>
-            <li><strong>Bonus Top Creator:</strong> Rp 500.000 untuk top 3 performer bulanan</li>
-          </ul>
-        </div>
-        
-        <div class="bonus-info">
-          <h4>🎯 Syarat Klaim Bonus:</h4>
-          <ul>
-            <li>Akun harus aktif minimal 30 hari setelah join</li>
-            <li>Minimal posting 15 video per bulan</li>
-            <li>Engagement rate minimal 3%</li>
-            <li>Tidak ada pelanggaran selama periode bonus</li>
-            <li>Verifikasi data diri lengkap dengan KTP</li>
-          </ul>
-        </div>
-        
-        <div style="text-align: center; margin-top: 20px;">
-          <button class="calculator-button" id="joinFromBonusBtn">Gabung Sekarang & Klaim Bonus!</button>
-          <p style="color: #ccc; font-size: 0.9rem; margin-top: 10px;">* Bonus akan dibayarkan setiap tanggal 5 bulan berikutnya</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <footer>
     <p>© 2025 VIP_Agency | Dibuat oleh <a href="https://vipagency.netlify.app/" target="_blank">❤️ Dafid SEO</a></p>
   </footer>
@@ -773,12 +623,6 @@ footer a:hover { text-decoration:underline; }
   const hitungBtn = document.getElementById('hitungBtn');
   const hasilKalkulator = document.getElementById('hasilKalkulator');
 
-  // Elemen modal Tabel Bonus
-  const tabelBonusModal = document.getElementById('tabelBonusModal');
-  const closeTabelBonusModal = document.getElementById('closeTabelBonusModal');
-  const tabelBonusBtn = document.getElementById('tabelBonusBtn');
-  const joinFromBonusBtn = document.getElementById('joinFromBonusBtn');
-
   // Buka modal Gabung Agency
   joinAgencyBtn.addEventListener('click', function(e) {
     e.preventDefault();
@@ -800,22 +644,6 @@ footer a:hover { text-decoration:underline; }
     document.body.style.overflow = 'hidden';
   });
 
-  // Buka modal Tabel Bonus
-  tabelBonusBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    tabelBonusModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  });
-
-  // Tombol Gabung dari Tabel Bonus
-  joinFromBonusBtn.addEventListener('click', function() {
-    closeTabelBonusModalFunc();
-    setTimeout(() => {
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }, 300);
-  });
-
   // Tutup modal Gabung Agency
   closeModal.addEventListener('click', closeAgencyModal);
   cancelBtn.addEventListener('click', closeAgencyModal);
@@ -825,9 +653,6 @@ footer a:hover { text-decoration:underline; }
 
   // Tutup modal Kalkulator
   closeKalkulatorModal.addEventListener('click', closeKalkulatorModalFunc);
-
-  // Tutup modal Tabel Bonus
-  closeTabelBonusModal.addEventListener('click', closeTabelBonusModalFunc);
 
   // Fungsi tutup modal Gabung Agency
   function closeAgencyModal() {
@@ -850,12 +675,6 @@ footer a:hover { text-decoration:underline; }
     document.body.style.overflow = 'auto';
   }
 
-  // Fungsi tutup modal Tabel Bonus
-  function closeTabelBonusModalFunc() {
-    tabelBonusModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
-
   // Tutup modal dengan klik di luar konten
   modal.addEventListener('click', function(e) {
     if (e.target === modal) closeAgencyModal();
@@ -867,10 +686,6 @@ footer a:hover { text-decoration:underline; }
 
   kalkulatorModal.addEventListener('click', function(e) {
     if (e.target === kalkulatorModal) closeKalkulatorModalFunc();
-  });
-
-  tabelBonusModal.addEventListener('click', function(e) {
-    if (e.target === tabelBonusModal) closeTabelBonusModalFunc();
   });
 
   // Aktifkan tombol konfirmasi jika checkbox dicentang
@@ -1046,7 +861,6 @@ Terima kasih.`;
       if (modal.style.display === 'flex') closeAgencyModal();
       if (chatModal.style.display === 'flex') closeChatModalFunc();
       if (kalkulatorModal.style.display === 'flex') closeKalkulatorModalFunc();
-      if (tabelBonusModal.style.display === 'flex') closeTabelBonusModalFunc();
     }
   });
 </script>
